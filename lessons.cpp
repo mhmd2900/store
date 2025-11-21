@@ -89,12 +89,11 @@ cout << " \n \n Time: " << ms << " µs\n";
 
 
 ////////////////////    printf
-int a = 5 ;
 int u = 50 ;
-printf("   the a = %d \n  " ,  a ) ;   // 5
-printf(" also a equals = %0*d \n  " , 2  , a ) ; // 05
-printf(" also a equals = %0*d \n  " , 2  , u ) ; // 50
-printf(" also a equals = %02d \n  " , u ) ; // 50             
+printf("   this is  %d \n  " ,  u ) ;              // 50
+printf(" this is  %0d \n  " ,  u ) ;               // 50
+printf(" also  equals = %0*d \n  " , 3  , u ) ;    // 050
+printf(" also  equals = %03d \n  " , u ) ;         // 050            
 
 float f = 2.7638 ;
 printf (" this is %f \n " , f);        // 2.763800
