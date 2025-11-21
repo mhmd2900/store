@@ -94,14 +94,13 @@ int u = 50 ;
 printf("   the a = %d \n  " ,  a ) ;   // 5
 printf(" also a equals = %0*d \n  " , 2  , a ) ; // 05
 printf(" also a equals = %0*d \n  " , 2  , u ) ; // 50
-printf(" also a equals = %02d \n  " , u ) ; // 50              *********
+printf(" also a equals = %02d \n  " , u ) ; // 50             
 
-float d = 2.0 ;
-double f = 4.123456 ;
-printf ( " the d = %.4f \n" ,   d );  // 2.0000                  **********
-printf ( " the d = %.4f \n" ,   f );   // 4.1235
-printf ( " and the f equals = %.*f \n" , 4 , d );  // 2.0000
-printf ( " and the f equals = %.*f \n " , 4 , f );  // // 4.1235
+float f = 2.7638 ;
+printf (" this is %f \n " , f);        // 2.763800
+printf (" this is %.f \n " , f);       // 3
+printf (" this is %.3f \n " , f);      // 2.764            
+printf (" this is %.*f \n " , 3 , f);  // 2.764       
 
 char name [] = " mhmd";
 char letter = 'm';
