@@ -120,6 +120,42 @@ cout << "|______|_______________________|______| \n";
 
 
 
+
+/////////////////   alignment
+string align ( char side , int space , const string& word , char fill = ' ' )
+{
+int blanks = space - static_cast<int>(word.size()) ;
+if ( blanks < 0 )   blanks = 0 ;
+int l_pad = blanks/ 2 ;
+int r_pad = blanks - l_pad ;
+
+if ( side == 'l')
+return word + string(blanks , fill)  ;
+
+else if ( side == 'r')
+return string(blanks , fill ) + word ;
+
+else
+return string( l_pad , fill ) + word + string( r_pad , fill ) ;
+}
+
+
+
+
+cout << "_________________________________________ \n";
+cout << "|    name    |      grade        | end  | \n";
+cout << "|____________|___________________|______| \n";
+cout << "|" << align( 'l' , 12 , "mhmd" )       << "|"  << align ( 'c' , 19 , " very good ")      <<"|" << align('r' , 6 , "pass") <<"|"<< endl;
+cout << "|" << align( 'l' , 12 , "abdelsalam" ) << "|"  << align ( 'c' , 19 , " bad " , '*')      <<"|" << align('r' , 6 , "fail") <<"|"<< endl;
+cout << "|" << align( 'l' , 12 , "may")         << "|"  << align ( 'c' , 19 , " very high good ") <<"|" << align('r' , 6 , "pass") <<"|"<< endl;
+cout << "|____________|___________________|______| \n";
+
+
+
+
+
+
+
 ////////////////  array vs vector function
 bool fun ( int arr []  ,  int num    , const vector<int>& vv   )  // array is & by default
 {
