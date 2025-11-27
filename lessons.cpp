@@ -10,8 +10,9 @@ int arr[5] = {[2] = 42, [4] = 99};    // arr = {0, 0, 42, 0, 99}
 int arr [][3]  = { {1,2}, {4} };  // Rest auto-zeroed → {{1,2,0},{4,0,0}}
 char str[10] = "hello";     // Initializes first 6 chars: 'h','e','l','l','o','\0', rest 0
 char str[]   = "world";     // Size = 6 (including '\0')
-std::array<int, 3> arr = {1, 2, 3};
-std::array<int, 3> arr{};       // Zero-initialized
+array <int, 3> arr = {1, 2, 3};
+array <int, 3> arr{};       // Zero-initialized
+
 
 vector <int> vnum ;
 vector <int> vnum ( 3 ) ;       // 3 elements
