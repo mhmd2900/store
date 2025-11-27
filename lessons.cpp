@@ -106,6 +106,7 @@ char letter = 'm';
 printf("  my name is %s \n " , name );  // my name is mhmd
 printf(" my letter is %*c \n " , 6 , letter) ;  // my letter is      m
 printf(" my letter is %6c \n " , letter) ;  //     my letter is      m
+cout << endl << string ( 6 , 'e') + "mhmd";    //// eeeeeemhmd
 
 
 
