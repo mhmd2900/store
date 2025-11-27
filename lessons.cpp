@@ -1,10 +1,17 @@
 
 
 ////////////   arrays     vectors      declaration 
-int arr [3] = {11,22,33};
-int arr [3] = {11};       //  1st elemnts is 11 , others are 0
-int arr []  = {00,11,22};
-int arr [3];
+int arr [3] = {};          // all 3 elements are 0
+int arr [3] = {11};        // 1st elemnts is 11 , others are 0
+int arr [3]  = {00,11,22};   // 3 initialized elements
+int arr []   = {00,11,22};   // 3 initialized elements
+int arr [3];               // all elemnts are garbage , if inside a function
+int arr[5] = {[2] = 42, [4] = 99};    // arr = {0, 0, 42, 0, 99}
+int arr [][3]  = { {1,2}, {4} };  // Rest auto-zeroed → {{1,2,0},{4,0,0}}
+char str[10] = "hello";     // Initializes first 6 chars: 'h','e','l','l','o','\0', rest 0
+char str[]   = "world";     // Size = 6 (including '\0')
+std::array<int, 3> arr = {1, 2, 3};
+std::array<int, 3> arr{};       // Zero-initialized
 
 vector <int> vnum ;
 vector <int> vnum ( 3 ) ;       // 3 elements
