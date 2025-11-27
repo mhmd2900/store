@@ -14,6 +14,21 @@ array <int, 3> arr = {1, 2, 3};
 array <int, 3> arr{};       // Zero-initialized
 
 
+
+
+struct Point { int x   ;  int y;  };
+Point arrOfStructs[3]; // Uninitialized 
+array<Point, 3> arrOfStructs; // uninitialized 
+array<Point, 3> arrOfStructs = {};   // All members zero-initialized → {0, 0}, {0, 0}, {0, 0}
+array<Point, 3> arrOfStructs = { Point{}, Point{}, Point{} };
+array<Point, 3> arrOfStructs = { {1, 2}, {3, 4}, {5, 6} };  // index 0 , index 1 , index 2
+array<Point, 3> arrOfStructs = {  Point{1, 2} ,  Point{3, 4} , Point{5, 6} };
+
+
+
+
+
+
 vector <int> vnum ;
 vector <int> vnum ( 3 ) ;       // 3 elements
 vector <int> vnum ( 3 , 55 ) ; // 3 elements , all values 55
