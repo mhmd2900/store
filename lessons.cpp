@@ -33,13 +33,13 @@ array <Point, 3> arrOfStructs = {  Point{1, 2} ,  Point{3, 4} , Point{5, 6} };
 // C-style array 
 vector <int> arrOfVecs [3]  = { {1}, {2,3}, {} } ; 
 // ➤ 1. Default: 3 empty vectors
-array<vector<int>, 3> arrOfVecs;
+array <vector<int>, 3> arrOfVecs;
 // ➤ 2. Explicitly zero-initialized (same as above)
-array<vector<int>, 3> arrOfVecs = {};
+array <vector<int>, 3> arrOfVecs = {};
 // ➤ 3. Initialize each vector with different values
-array<vector<int>, 3> arrOfVecs = { {1, 2}, {3, 4, 5}, {} };     // vec 0: size 2     vec 1: size 3     vec 2: empty
+array <vector<int>, 3> arrOfVecs = { {1, 2}, {3, 4, 5}, {} };     // vec 0: size 2     vec 1: size 3     vec 2: empty
 // ➤ 4. Initialize all vectors to same size & value
-array<vector<int>, 3> arrOfVecs = { vector<int>(4, 99), vector<int>(4, 99),  vector<int>(4, 99)  };  // 4 elements = 99
+array <vector<int>, 3> arrOfVecs = { vector<int>(4, 99), vector<int>(4, 99),  vector<int>(4, 99)  };  // 4 elements = 99
 // ➤ 5. Modern C++17+: auto + type inference
 auto arrOfVecs = array { vector{10, 20}, vector{30}, vector<int>{} };  // type hint needed if empty
     
@@ -63,17 +63,17 @@ vector <int> vnum = { 11,22,33 } ;
 // What happens AFTER (like assignment or push_back) is mutation — not initialization.
 
 // 1. Initializer List → Initializes with explicit values
-vector<int> nums = {1, 2, 3};     // ✅ Definition + Initialization (via initializer_list constructor)
+vector <int> nums = {1, 2, 3};     // ✅ Definition + Initialization (via initializer_list constructor)
 
 // 2. Size Constructor → Initializes N default-constructed elements
-vector<int> nums(2);              // ✅ Definition + Initialization (via size constructor)
+vector <int> nums(2);              // ✅ Definition + Initialization (via size constructor)
 nums[0] = 33;                     // ⚠️ This is ASSIGNMENT (mutation after initialization)
 
 // 3. Fill Constructor → Initializes N copies of given value
-vector<int> nums(3, 99);          // ✅ Definition + Initialization (via fill constructor → [99,99,99])
+vector <int> nums(3, 99);          // ✅ Definition + Initialization (via fill constructor → [99,99,99])
 
 // 4. Default Constructor → Initializes empty vector
-vector<int> nums;                 // ✅ Definition + Initialization (default constructor → size=0)
+vector <int> nums;                 // ✅ Definition + Initialization (default constructor → size=0)
 nums.push_back(44);               // ⚠️ This is MUTATION (dynamic growth after initialization)
 // vector<stdata>vstdata ;
 // vstdata.push_back({"aa","bbb", 12});
@@ -96,13 +96,13 @@ nums.push_back(44);               // ⚠️ This is MUTATION (dynamic growth aft
 
 ///////////////////////////////////////////  vector of arrays  ,,   variable number of fixed-size records.
 // ➤ 1. Default: empty vector (no arrays yet)
-vector<array<int, 3>> vecOfArrays;
+vector <array<int, 3>> vecOfArrays;
 // ➤ 2. Pre-sized: 5 arrays, each {0,0,0}
-vector<array<int, 3>> vecOfArrays(5);
+vector <array<int, 3>> vecOfArrays(5);
 // ➤ 3. Pre-sized + uniform init: 4 arrays of {99,99,99}
-vector<array<int, 3>> vecOfArrays(4, {99, 99, 99});
+vector <array<int, 3>> vecOfArrays(4, {99, 99, 99});
 // ➤ 4. Initialize with specific arrays
-vector<array<int, 3>> vecOfArrays = { {1, 2, 3},  {4, 5, 6},  {7, 8, 9} };
+vector <array<int, 3>> vecOfArrays = { {1, 2, 3},  {4, 5, 6},  {7, 8, 9} };
 // ➤ 5. Modern C++17+: auto + type inference
 auto vecOfArrays = vector{ array{1, 2, 3} , array{4, 5, 6} };
 
@@ -119,7 +119,7 @@ return arr[num] = vv[0];
 
 int arr[4] = { 0,1,2 ,3};
 arr [3] = 3 ;
-vector<int>vv = { 3 , 4 , 5 , 6 };
+vector <int>vv = { 3 , 4 , 5 , 6 };
 
 cout << fun ( arr , arr[3] , vv ) ;
 
