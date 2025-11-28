@@ -1,6 +1,6 @@
 
 
-////////////   arrays     vectors      declaration 
+///////////////////////////////////   array  declaration 
 int arr [3] = {};          // all 3 elements are 0
 int arr [3] = {11};        // 1st elemnts is 11 , others are 0
 int arr [3]  = {00,11,22};   // 3 initialized elements
@@ -16,27 +16,20 @@ array <int, 3> arr{};       // Zero-initialized
 
 
 
+//////////////////////////////////////  array of structures
 struct Point { int x   ;  int y;  };
 Point arrOfStructs[3]; // Uninitialized 
-array<Point, 3> arrOfStructs; // uninitialized 
-array<Point, 3> arrOfStructs = {};   // All members zero-initialized → {0, 0}, {0, 0}, {0, 0}
-array<Point, 3> arrOfStructs = { Point{}, Point{}, Point{} };
-array<Point, 3> arrOfStructs = { {1, 2}, {3, 4}, {5, 6} };  // index 0 , index 1 , index 2
-array<Point, 3> arrOfStructs = {  Point{1, 2} ,  Point{3, 4} , Point{5, 6} };
+array <Point, 3> arrOfStructs; // uninitialized 
+array <Point, 3> arrOfStructs = {};   // All members zero-initialized → {0, 0}, {0, 0}, {0, 0}
+array <Point, 3> arrOfStructs = { Point{}, Point{}, Point{} };
+array <Point, 3> arrOfStructs = { {1, 2}, {3, 4}, {5, 6} };  // index 0 , index 1 , index 2
+array <Point, 3> arrOfStructs = {  Point{1, 2} ,  Point{3, 4} , Point{5, 6} };
 
 
 
 
 
-
-vector <int> vnum ;
-vector <int> vnum ( 3 ) ;       // 3 elements
-vector <int> vnum ( 3 , 55 ) ; // 3 elements , all values 55
-vector <int> vnum ( 3 ) = { 11,22,33 } ; 
-vector <int> vnum = { 11,22,33 } ;
-
-
-///////////// array of vectors   ,,, fixed groups with variable content.
+////////////////////////////////// array of vectors   ,,, fixed groups with variable content.
 // C-style array 
 vector <int> arrOfVecs [3]  = { {1}, {2,3}, {} } ; 
 // ➤ 1. Default: 3 empty vectors
@@ -44,27 +37,36 @@ array<vector<int>, 3> arrOfVecs;
 // ➤ 2. Explicitly zero-initialized (same as above)
 array<vector<int>, 3> arrOfVecs = {};
 // ➤ 3. Initialize each vector with different values
-array<vector<int>, 3> arrOfVecs = {
-    {1, 2},           // vec 0: size 2
-    {3, 4, 5},        // vec 1: size 3
-    {}                // vec 2: empty
-};
+array<vector<int>, 3> arrOfVecs = { {1, 2}, {3, 4, 5}, {} };     // vec 0: size 2     vec 1: size 3     vec 2: empty
 // ➤ 4. Initialize all vectors to same size & value
-array<vector<int>, 3> arrOfVecs = {
-    vector<int>(4, 99),   // 4 elements = 99
-    vector<int>(4, 99),
-    vector<int>(4, 99)
-};
+array<vector<int>, 3> arrOfVecs = { vector<int>(4, 99), vector<int>(4, 99),  vector<int>(4, 99)  };  // 4 elements = 99
 // ➤ 5. Modern C++17+: auto + type inference
-auto arrOfVecs = array{
-    vector{10, 20},
-    vector{30},
-    vector<int>{}     // type hint needed if empty
-};
+auto arrOfVecs = array { vector{10, 20}, vector{30}, vector<int>{} };  // type hint needed if empty
+    
 
 
 
-////////////////  vector of arrays  ,,   variable number of fixed-size records.
+
+///////////////////////////////////////////
+///////////////////////////////////////////  vector declaration
+vector <int> vnum ;
+vector <int> vnum ( 3 ) ;       // 3 elements
+vector <int> vnum ( 3 , 55 ) ; // 3 elements , all values 55
+vector <int> vnum ( 3 ) = { 11,22,33 } ; 
+vector <int> vnum = { 11,22,33 } ;
+
+
+
+
+//////////////////////////////////////  vector of structures
+
+
+
+
+
+
+
+///////////////////////////////////////////  vector of arrays  ,,   variable number of fixed-size records.
 // ➤ 1. Default: empty vector (no arrays yet)
 vector<array<int, 3>> vecOfArrays;
 // ➤ 2. Pre-sized: 5 arrays, each {0,0,0}
@@ -72,16 +74,11 @@ vector<array<int, 3>> vecOfArrays(5);
 // ➤ 3. Pre-sized + uniform init: 4 arrays of {99,99,99}
 vector<array<int, 3>> vecOfArrays(4, {99, 99, 99});
 // ➤ 4. Initialize with specific arrays
-vector<array<int, 3>> vecOfArrays = {
-    {1, 2, 3},
-    {4, 5, 6},
-    {7, 8, 9}
-};
+vector<array<int, 3>> vecOfArrays = { {1, 2, 3},  {4, 5, 6},  {7, 8, 9} };
 // ➤ 5. Modern C++17+: auto + type inference
-auto vecOfArrays = vector{
-    array{1, 2, 3},
-    array{4, 5, 6}
-};
+auto vecOfArrays = vector{ array{1, 2, 3} , array{4, 5, 6} };
+
+
 
 
 
