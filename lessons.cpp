@@ -57,6 +57,34 @@ vector <int> vnum = { 11,22,33 } ;
 
 
 
+///////////////////  4 Ways to Define & Initialize a std::vector ///////////////////
+// In C++, defining a vector = declaration + memory allocation + initialization.
+// All of these are DEFINITIONS — and all perform INITIALIZATION at time of creation.
+// What happens AFTER (like assignment or push_back) is mutation — not initialization.
+
+// 1. Initializer List → Initializes with explicit values
+vector<int> nums = {1, 2, 3};     // ✅ Definition + Initialization (via initializer_list constructor)
+
+// 2. Size Constructor → Initializes N default-constructed elements
+vector<int> nums(2);              // ✅ Definition + Initialization (via size constructor)
+nums[0] = 33;                     // ⚠️ This is ASSIGNMENT (mutation after initialization)
+
+// 3. Fill Constructor → Initializes N copies of given value
+vector<int> nums(3, 99);          // ✅ Definition + Initialization (via fill constructor → [99,99,99])
+
+// 4. Default Constructor → Initializes empty vector
+vector<int> nums;                 // ✅ Definition + Initialization (default constructor → size=0)
+nums.push_back(44);               // ⚠️ This is MUTATION (dynamic growth after initialization)
+// vector<stdata>vstdata ;
+// vstdata.push_back({"aa","bbb", 12});
+// vstdata.push_back({"www","mmm", 55});
+// cout << vstdata[1].last_name ;          // mmm
+
+
+
+
+
+
 
 //////////////////////////////////////  vector of structures
 
@@ -79,6 +107,21 @@ vector<array<int, 3>> vecOfArrays = { {1, 2, 3},  {4, 5, 6},  {7, 8, 9} };
 auto vecOfArrays = vector{ array{1, 2, 3} , array{4, 5, 6} };
 
 
+
+
+
+////////////////////////////////////////////////  array vs vector function
+bool fun ( int arr []  ,  int num    , const vector<int>& vv   )  // array is & by default
+{
+return arr[num] = vv[0];
+}
+
+
+int arr[4] = { 0,1,2 ,3};
+arr [3] = 3 ;
+vector<int>vv = { 3 , 4 , 5 , 6 };
+
+cout << fun ( arr , arr[3] , vv ) ;
 
 
 
@@ -177,44 +220,6 @@ cout << "|____________|___________________|______| \n";
 
 
 
-////////////////  array vs vector function
-bool fun ( int arr []  ,  int num    , const vector<int>& vv   )  // array is & by default
-{
-return arr[num] = vv[0];
-}
-
-
-int arr[4] = { 0,1,2 ,3};
-arr [3] = 3 ;
-vector<int>vv = { 3 , 4 , 5 , 6 };
-
-cout << fun ( arr , arr[3] , vv ) ;
-
-
-
-
-///////////////////  4 Ways to Define & Initialize a std::vector ///////////////////
-// In C++, defining a vector = declaration + memory allocation + initialization.
-// All of these are DEFINITIONS — and all perform INITIALIZATION at time of creation.
-// What happens AFTER (like assignment or push_back) is mutation — not initialization.
-
-// 1. Initializer List → Initializes with explicit values
-vector<int> nums = {1, 2, 3};     // ✅ Definition + Initialization (via initializer_list constructor)
-
-// 2. Size Constructor → Initializes N default-constructed elements
-vector<int> nums(2);              // ✅ Definition + Initialization (via size constructor)
-nums[0] = 33;                     // ⚠️ This is ASSIGNMENT (mutation after initialization)
-
-// 3. Fill Constructor → Initializes N copies of given value
-vector<int> nums(3, 99);          // ✅ Definition + Initialization (via fill constructor → [99,99,99])
-
-// 4. Default Constructor → Initializes empty vector
-vector<int> nums;                 // ✅ Definition + Initialization (default constructor → size=0)
-nums.push_back(44);               // ⚠️ This is MUTATION (dynamic growth after initialization)
-// vector<stdata>vstdata ;
-// vstdata.push_back({"aa","bbb", 12});
-// vstdata.push_back({"www","mmm", 55});
-// cout << vstdata[1].last_name ;          // mmm
 
 
 
