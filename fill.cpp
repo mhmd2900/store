@@ -82,3 +82,22 @@ for ( int i= 0 ; i < size ; i ++ )
  cout << arr[i] << " \t" ;
  cout << endl ;
 }
+
+
+//////////////////////          layout alignment
+string align ( char side , int space , const string& word , char fill = ' ' )
+{
+int blanks = space - static_cast<int>(word.size()) ;
+if ( blanks < 0 )   blanks = 0 ;
+int l_pad = blanks/ 2 ;
+int r_pad = blanks - l_pad ;
+
+if ( side == 'l')
+return word + string(blanks , fill)  ;
+
+else if ( side == 'r')
+return string(blanks , fill ) + word ;
+
+else
+return string( l_pad , fill ) + word + string( r_pad , fill ) ;
+}
