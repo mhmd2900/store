@@ -22,7 +22,7 @@ Point arrOfStructs[3]; // Uninitialized
 array <Point, 3> arrOfStructs; // uninitialized 
 array <Point, 3> arrOfStructs = {};   // All members zero-initialized → {0, 0}, {0, 0}, {0, 0}
 array <Point, 3> arrOfStructs = { Point{}, Point{}, Point{} };
-array <Point, 3> arrOfStructs = { {1, 2}, {3, 4}, {5, 6} };  // index 0 , index 1 , index 2
+array <Point, 3> arrOfStructs = {{ {1, 2}, {3, 4}, {5, 6} }};  // index 0 , index 1 , index 2
 array <Point, 3> arrOfStructs = {  Point{1, 2} ,  Point{3, 4} , Point{5, 6} };
 
 
@@ -37,7 +37,7 @@ array <vector<int>, 3> arrOfVecs;
 // ➤ 2. Explicitly zero-initialized (same as above)
 array <vector<int>, 3> arrOfVecs = {};
 // ➤ 3. Initialize each vector with different values
-array <vector<int>, 3> arrOfVecs = { {1, 2}, {3, 4, 5}, {} };     // vec 0: size 2     vec 1: size 3     vec 2: empty
+array <vector<int>, 3> arrOfVecs = {{ {1, 2}, {3, 4, 5}, {} }};     // vec 0: size 2     vec 1: size 3     vec 2: empty
 // ➤ 4. Initialize all vectors to same size & value
 array <vector<int>, 3> arrOfVecs = { vector<int>(4, 99), vector<int>(4, 99),  vector<int>(4, 99)  };  // 4 elements = 99
 // ➤ 5. Modern C++17+: auto + type inference
