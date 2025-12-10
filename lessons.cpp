@@ -6,9 +6,8 @@ int arr [3] = {11};        // 1st elemnts is 11 , others are 0
 int arr [3]  = {00,11,22};   // 3 initialized elements
 int arr []   = {00,11,22};   // 3 initialized elements
 int arr [3];               // all elemnts are garbage , if inside a function
-int arr[5] = {[2] = 42, [4] = 99};    // arr = {0, 0, 42, 0, 99}
-int arr [][3]  = { {1,2}, {4} };  // Rest auto-zeroed → {{1,2,0},{4,0,0}}
-char str[10] = "hello";     // Initializes first 6 chars: 'h','e','l','l','o','\0', rest 0
+int arr [][3]  = { {1,2}, {4} };  // Rest auto-zeroed → {{1,2,0},{4,0,0}} , must write columns numbers
+char str[10] = "hello";     // Initializes first 6 chars: 'h','e','l','l','o','\0', rest \0  , equivalent to 0 in ASCII
 char str[]   = "world";     // Size = 6 (including '\0')
 array <int, 3> arr = {1, 2, 3};
 array <int, 3> arr{};       // Zero-initialized
@@ -23,24 +22,19 @@ array <Point, 3> arrOfStructs; // uninitialized
 array <Point, 3> arrOfStructs = {};   // All members zero-initialized → {0, 0}, {0, 0}, {0, 0}
 array <Point, 3> arrOfStructs = { Point{}, Point{}, Point{} };
 array <Point, 3> arrOfStructs = {{ {1, 2}, {3, 4}, {5, 6} }};  // index 0 , index 1 , index 2
-array <Point, 3> arrOfStructs = {  Point{1, 2} ,  Point{3, 4} , Point{5, 6} };
+array <Point, 3> arrOfStructs = {  Point{1, 2} ,  Point{3, 4} , Point{5, 6} };  // best
 
 
 
 
 
 ////////////////////////////////// array of vectors   ,,, fixed groups with variable content.
-// C-style array 
-vector <int> arrOfVecs [3]  = { {1}, {2,3}, {} } ; 
-// ➤ 1. Default: 3 empty vectors
-array <vector<int>, 3> arrOfVecs;
-// ➤ 2. Explicitly zero-initialized (same as above)
-array <vector<int>, 3> arrOfVecs = {};
-// ➤ 3. Initialize each vector with different values
+vector <int> arrOfVecs [3]  = { {1}, {2,3}, {} } ;  // C-style array 
+array <vector<int>, 3> arrOfVecs;  // 3 empty vectors
+array <vector<int>, 3> arrOfVecs = {};  // zero-initialized 
 array <vector<int>, 3> arrOfVecs = {{ {1, 2}, {3, 4, 5}, {} }};     // vec 0: size 2     vec 1: size 3     vec 2: empty
-// ➤ 4. Initialize all vectors to same size & value
 array <vector<int>, 3> arrOfVecs = { vector<int>(4, 99), vector<int>(4, 99),  vector<int>(4, 99)  };  // 4 elements = 99
-// ➤ 5. Modern C++17+: auto + type inference
+array <vector<int>, 3> arrOfVecs = { vector<int>{1}, vector<int>{1,3,5}, vector<int>{} };   // best
 auto arrOfVecs = array { vector{10, 20}, vector{30}, vector<int>{} };  // type hint needed if empty
     
 
