@@ -3,7 +3,7 @@
 // 0 octal
 // 0X hexadecimal
 // programming calculator         [ decimal  اقسم  ]          [ others   اضرب ]
-// RAM output buffer :  every 50 \n   , use   endl 
+// RAM output buffer :  every 50 \n   , use   endl (which is '\n' + flush)
 
 
 
