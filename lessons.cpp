@@ -1,3 +1,13 @@
+///////////////////////////////
+// decimak
+// 0 octal
+// 0X hexadecimal
+// programming calculator         [ decimal  اقسم  ]          [ others   اضرب ]
+// RAM output buffer :  every 50 \n   , use   endl 
+
+
+
+
 
 
 ///////////////////////////////////   array  declaration 
