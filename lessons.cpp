@@ -7,6 +7,12 @@
 
 
 
+//////////////////////////////  arabic
+// #include<fcntl.h>
+// _setmode(_fileno(stdout) , _O_U8TEXT) ;
+// wchar_t nnn = L'ل'  ;
+// wchar_t sss[6] = L"احمد" ;
+// wcout << nnn << endl << sss  ;
 
 
 
