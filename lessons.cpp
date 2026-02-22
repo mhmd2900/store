@@ -7,12 +7,27 @@
 
 
 
+
 //////////////////////////////  arabic
 // #include<fcntl.h>
 // _setmode(_fileno(stdout) , _O_U8TEXT) ;
 // wchar_t nnn = L'ل'  ;
 // wchar_t sss[6] = L"احمد" ;
 // wcout << nnn << endl << sss  ;
+
+
+
+
+////////////////////////////   time
+    // #include<chrono>
+    // auto start = chrono::high_resolution_clock::now();
+    // auto end   = chrono::high_resolution_clock::now();
+    // auto ms = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+    // cout << "Time taken: " << ms << " ms\n";    
+
+
+
+
 
 
 
