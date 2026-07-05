@@ -98,7 +98,7 @@ system ( "color 0F") ;
 
                                                                                       if (!password.empty())   return password ;  // target
                                                                                       if ( cin.eof())  { cout << " EOF , goodbye \n" ;  exit(0) ; } // EOF  ,  exit needs <cstdlib>
-                                                                                      else  cout << " empty password , not acceted , repeat \n" ; // empty
+                                                                                      cout << " empty password , not acceted , repeat \n" ; // empty
                                                                                   }
                                                                               }
 
