@@ -27,8 +27,6 @@
 //          ├── target ═══► ignore ( remove \n if upcoming getline ) + return target
 //          ├── ctrl z (eofbit) ═══► exit    
 //          └── type mismatch (failbit) ═══► clear & ignore & loop
-
-
 // -- after unformatted cin 
 //          ├── target ═══► return target
 //          ├── ctrl z (eofbit) ═══► exit   
