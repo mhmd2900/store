@@ -22,6 +22,8 @@ system ("cls");
 system ( "color 0F") ;
 }
 
+
+
 //////////////     input random
 int input_random ( int from , int to )
 {
@@ -47,18 +49,20 @@ int input_random ( int from , int to )
 
 
                                                                     //////////////    input number  ,,, function overloading
-                                                                      int input_number ( const string& message , int from , int to )
-                                                                      {
-                                                                          while ( true )
-                                                                          {
-                                                                          cout << message ;
-                                                                          int num ;
-
-                                                                          if ( cin >> num && num >= from && num <= to) {  cin.ignore( numeric_limits<streamsize>::max() , '\n');   return num ; } // target
-                                                                          if ( cin.eof() )  { cout << " EOF ... goodbye \n ";  exit(0); } // EOF
-                                                                          cin.clear();  cin.ignore( numeric_limits<streamsize>::max() , '\n'); // remnant ( fail , different choice )
-                                                                          } 
-                                                                      }
+                                                                    int input_number ( const string& message , int from , int to )
+                                                                    {
+                                                                        while ( true )
+                                                                        {
+                                                                        cout << message ;
+                                                                        int num ;
+                                                                
+                                                                        if ( cin >> num )        {  cin.ignore( numeric_limits<streamsize>::max() , '\n');   
+                                                                                                    if ( num >= from && num <= to )         return num ;     // target 
+                                                                                                    cout << " out of range \n" ; }                     // different choice
+                                                                        else if ( cin.eof() )         { cout << " EOF ... goodbye \n ";  exit(0); }               // EOF
+                                                                        else if ( cin.fail())         { cin.clear();   cin.ignore( numeric_limits<streamsize>::max() , '\n');  cout << " failed input \n "; } // fail 
+                                                                        } 
+                                                                    }
 
                                                                     ///////////////  want to repeat
                                                                     bool want_to_repeat ()
@@ -67,15 +71,15 @@ int input_random ( int from , int to )
                                                                         {
                                                                         cout << " Do you want to repeat ?   [y/n] \n";
                                                                         char ch ;
-
-                                                                        if ( cin>>ch )  {       cin.ignore( numeric_limits<streamsize>::max() , '\n');   // target
-                                                                                                if (ch == 'y' || ch == 'Y') return true;
-                                                                                                if (ch == 'n' || ch == 'N') return false; } 
-                                                                        if ( cin.eof())          {  cout << " EOF , goodbye \n" ;  exit(0) ; }   // EOF 
-                                                                        if ( cin.fail())         {  cin.clear();   cin.ignore( numeric_limits<streamsize>::max() , '\n'); } // fail
-                                                                          cout << "Invalid choice, please enter only y or n \n"; // remnant ( fail , different choice )
+                                                                
+                                                                        if ( cin >> ch )  {     cin.ignore( numeric_limits<streamsize>::max() , '\n');  
+                                                                                                if (ch == 'y' || ch == 'Y') return true;   // target
+                                                                                                if (ch == 'n' || ch == 'N') return false;  // target
+                                                                                                cout << "Invalid choice, please enter y or n\n";  }  // different choice
+                                                                        else if ( cin.eof())          {  cout << " EOF , goodbye \n" ;  exit(0) ; }  // EOF
+                                                                        else if ( cin.fail())         {  cin.clear();   cin.ignore( numeric_limits<streamsize>::max() , '\n'); cout << " failed input \n"; } // fail
                                                                         }
-                                                                    }
+                                                                    } 
 
 
 
@@ -89,31 +93,31 @@ int input_random ( int from , int to )
           cout << message ;
           string pass ;   // tight scope
 
-          if (getline(cin, pass) && !pass.empty())      return pass;          // target
-          if (cin.eof())          {cout << " EOF , goodbye \n";   exit(0) ;}  // EOF  
-          cout << " input can not be empty ! \n";                             // empty  ( no fail ever )
+          if (getline(cin, pass))    { if (!pass.empty())   return pass;                 // target
+                                       else  cout << " input can not be empty ! \n"; }  // different choice
+          else if (cin.eof())          {cout << " EOF , goodbye \n";   exit(0) ;}            // EOF  
           }
       }
 
       
       
       ///////////////////    input string ( charchters )
-      string input_wordch ( const string& message )
+     string input_wordch ( const string& message )
       {  
           while (true)
           {
-              cout << message ;
-              string password ; // fresh empty string each attempt
-              char ch ; // narrow scope 
+            cout << message ;
+            string password ; // fresh empty string each attempt
+            char ch ; // narrow scope 
 
-              while ( cin.get(ch) )  {
+            while ( cin.get(ch) )  {
                 if ( ch == '\r')   continue ;
                 if ( ch == '\n')   break ;
                 password += ch ;     }
-
-              if (!password.empty())   return password ;  // target
-              if ( cin.eof())  { cout << " EOF , goodbye \n" ;  exit(0) ; } // EOF 
-              cout << " empty password , not acceted , repeat \n" ; // empty  ( no fail ever )
+               
+            if (cin)  {  if (!password.empty())   return password ;   // target         ,, if (cin) means I/O succeeded (found \n)
+                              cout <<  " empty password , not acceted , repeat \n" ;  }  // other option
+            else if ( cin.eof())  { cout << " EOF , goodbye \n" ;  exit(0) ; } // EOF 
           }
       }
 
