@@ -60,6 +60,14 @@ stspeciality medicine , surgery  ;
 
 
 
+// Rule of thumb:
+// ➤ Built-in types (int, char, double, bool) and Enums: Pass by value. as 4 bytes ( light enum ) faster than pass a pointer/address ( 8 bytes )
+// ➤ Large objects (std::string, std::vector, structs , modern arrays ): 
+            // ➤ If you’re modifying it     — pass by &
+            // ➤ If you’re not modifying it — pass by const &
+// ➤ c style arrays automatically "decays" into a pointer to its first element. So, int arr[3] actually becomes int* arr.
+
+
 
                                     encode str_to_encode ( const string& name ) // & due to large struct , const to protect it
                                     {
