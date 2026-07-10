@@ -48,11 +48,11 @@ stspeciality medicine , surgery  ;
 
 // Enum 
 // 1) categorization : 
-//     -- static casting ( with integers )
-//     -- if statement ( with strings )                        e.g  str_to_encode
+//     -- static casting ( with integers )                     cast a declared enum not int 
+//     -- if statement ( with strings )                        e.g  str_to_encode  ,, after tolower
 // 2) storage :
-//     -- by value for Enum
-//     -- by ref & ( if Enum is a part of struct )             e.g  read  
+//     -- Enum                                                  by value
+//     -- Enum is a part of struct                            ( ref with reading   ,,,  const ref with printing )       
 // 3) output : 
 //     -- Enum return its number
 //     -- switch return anything                               e.g  encode_to_str                              
