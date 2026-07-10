@@ -50,8 +50,8 @@ int arr [] = {} ;          // garbage
 
 int arr [][3] ;                                       //  cout << arr[0][0] ;       compile error
 int arr [][3] = {} ;                                     // out << arr[0][0] ;      garbage       
-int arr [][3]  = { {1,2}, {4} };                   // → {{1,2,0},{4,0,0}}          cout << arr[1][0] ;           4       ✅
 int arr [][3]  = { {} , {} };                            // cout << arr[1][0] ;          0                               ✅
+int arr [][3]  = { {1,2}, {4} };                   // → {{1,2,0},{4,0,0}}          cout << arr[1][0] ;           4       ✅
 int arr [][3]  = { {} };                                 // cout << arr[0][1] ;          0
 int arr [][3]  = { {} };                                 // cout << arr[1][0] ;         garbage
 int arr [2][]  = { {11,22} , {33,44} };             // must write columns numbers         cout << arr[0][1] ;     compile error
