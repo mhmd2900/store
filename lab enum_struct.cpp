@@ -57,7 +57,11 @@ stspeciality medicine , surgery  ;
                                     }
 
 
-                                    string encode_to_str ( encode name  )  // Passing by value: You copy 4 bytes ( light enum ) . Passing by reference: You pass a pointer/address (which is 8 bytes on a 64-bit system).
+     // ROLE OF THUMB ,, Built-in types (int, char, double, bool) and Enums: Pass by value. as 4 bytes ( light enum ) faster than pass a pointer/address ( 8 bytes )
+     //                 Large objects (std::string, std::vector, structs , modern arrays ): Pass by const reference 
+     //                 c style arrays automatically "decays" into a pointer to its first element. So, int arr[3] actually becomes int* arr.
+
+                                    string encode_to_str ( encode name  )
                                     {
                                     switch ( name )
                                        {    case encode::mhmd :    return "mhmd";
