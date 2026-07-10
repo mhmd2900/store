@@ -45,7 +45,13 @@ int arr [3] = {11};        // 1st elemnts is 11 , others are 0
 int arr [3]  = {00,11,22};   // 3 initialized elements
 int arr []   = {00,11,22};   // 3 initialized elements
 int arr [3];               // all elemnts are garbage , if inside a function
-int arr [][3]  = { {1,2}, {4} };  // Rest auto-zeroed → {{1,2,0},{4,0,0}} , must write columns numbers               arr[1][0]  =   4
+
+int arr [][3]  = { {1,2}, {4} };                   // → {{1,2,0},{4,0,0}}          cout << arr[1][0] ;           4
+int arr [][3]  = { {} , {} };                            // cout << arr[1][0] ;          0
+int arr [][3]  = { {} };                                 // cout << arr[0][1] ;          0
+int arr [][3]  = { {} };                                 // cout << arr[1][0] ;         garbage
+int arr [2][]  = { {11,22} , {33,44} };             // must write columns numbers         cout << arr[0][1] ;     compile error
+
 char str[10] = "hello";     // Initializes first 6 chars: 'h','e','l','l','o','\0', rest \0  , equivalent to 0 in ASCII
 char str[]   = "world";     // Size = 6 (including '\0')
 array <int, 3> arr = {1, 2, 3};    // best  ✅✅✅   
