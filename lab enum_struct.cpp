@@ -52,7 +52,7 @@ stspeciality medicine , surgery  ;
 //     -- static casting ( with integers )
 // 2) storage :
 //     -- by value for Enum
-//     -- by const ref & ( if Enum is a part of struct )
+//     -- by ref & ( if Enum is a part of struct )
 // 3) output : 
 //     -- Enum return its number
 //     -- switch return anything
