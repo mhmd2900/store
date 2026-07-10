@@ -44,8 +44,13 @@ int arr [3] = {};          // all 3 elements are 0
 int arr [3] = {11};        // 1st elemnts is 11 , others are 0
 int arr [3]  = {00,11,22};   // 3 initialized elements
 int arr []   = {00,11,22};   // 3 initialized elements
-int arr [3];               // all elemnts are garbage , if inside a function
+int arr [] ;               // compile error
+int arr [3];               // garbage 
+int arr [] = {} ;          // garbage
 
+
+int arr [][3] ;                                       //  cout << arr[0][0] ;       compile error
+int arr [][3] = {} ;                                     // out << arr[0][0] ;      garbage       
 int arr [][3]  = { {1,2}, {4} };                   // → {{1,2,0},{4,0,0}}          cout << arr[1][0] ;           4
 int arr [][3]  = { {} , {} };                            // cout << arr[1][0] ;          0
 int arr [][3]  = { {} };                                 // cout << arr[0][1] ;          0
