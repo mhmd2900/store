@@ -52,7 +52,38 @@ void check_sqrt(double num)
 cout << g ;
  }
 
+//////////////////////////////  test
 
+void guess (double& restart , double end , double ex )
+{ 
+for (  ; restart <= end/2 ; restart += ex )
+	if ( restart*restart <= end && (restart+ex)*(restart+ex) > end )
+	break ;
+}
+
+
+int main ()
+{
+mlib::reset_screen();
+
+double restart = 1 , end = 123 , temp = 123, ex = 1 ;
+double margin = 0.00001 ;
+double nene ;
+
+guess ( restart , end , ex  );
+
+while ( fabs( temp - (restart*restart)) > margin)
+{
+nene = temp/restart ;
+restart = (restart + nene)/2 ;
+}
+
+
+cout << restart ;
+
+return 0 ;
+}
+////////////////////////////////////////
 
 
 
