@@ -1,18 +1,18 @@
-// #include <iostream>
-// #include <string>
-// #include <array>
-// #include <vector>
-// #include <limits>   // input_number
-// #include <cstdlib>  // random , input_word 
-// #include <ctime>    // random
-// #include <cmath>    // for sqrt used in prime numbers ,, fabs for sqrr
-// #include<iomanip>     // for setw
-// using namespace std ;
+#include <iostream>
+#include <string>
+#include <array>
+#include <vector>
+#include <limits>   // input_number
+#include <cstdlib>  // random , input_word 
+#include <ctime>    // random
+#include <cmath>    // for sqrt used in prime numbers ,, fabs for sqrr
+#include<iomanip>     // for setw
+using namespace std ;
 
-// using std::cin;
-// using std::cout;
-// using std::numeric_limits;
-// using std::streamsize;
+using std::cin;
+using std::cout;
+using std::numeric_limits;
+using std::streamsize;
 
 
 
