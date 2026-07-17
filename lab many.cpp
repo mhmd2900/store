@@ -56,15 +56,13 @@ cout << g ;
 
 
 ////////////// check distinct number ( copy repeated number only in 1st appearance )
-bool check_distinct ( int number , int arr [] , int index)
+bool check_distinct ( int arr[] , int index , int num ) // use index as a size ( i need the remaining numbers not all numbers )
 {
-for ( int i = index -1 ; i >= 0 ; i --)
-if ( number == arr[i])
+for ( int i = 0 ; i < index ; i ++)
+if ( num == arr [i] )
 return false ;
-
 return true ;
 }
-
 
 
 //////////////////// check palindrome
