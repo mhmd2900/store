@@ -5,7 +5,7 @@ using namespace std ;
 int main ()
 {
 
-int arr [5] = { 5 , 2 , 1 , 2 , 6 } ;
+int arr [5] = { 5 , 2 , 1 , 8 , 6 } ;
 int arr2 [5] = {0} ;
 
 int rep = 0 ;
@@ -24,8 +24,9 @@ nc ++ ;
 arr2[rep - nc] = arr[i] ;
 rep = 0 ;
 nc = -1 ;
-
 }
+
+
 
 for ( int u = 0 ; u < 5 ; u++ )
 cout << arr2[u] << endl ;
