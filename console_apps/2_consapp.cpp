@@ -2,13 +2,14 @@
 using namespace std ;
 
 
-void fun ( int& a , int& b )
+void swap ( int& a , int& b )
 {
 int temp = a ;
 a = b ;
 b = temp ;
 }
 
+// sort array using other array
 
 int main ()
 {
@@ -18,10 +19,10 @@ int x = 0 ;
 
 for ( int i = 0 ; i < 5 ; i ++ )
 {
-for ( int x = i ; x < 5 ; x ++ )
+for ( int x = i ; x < 5 ; x ++ )  // 
 {
-if ( arr[i] > arr[x] )
-fun ( arr[i] , arr[x] ) ;
+if ( arr[i] > arr[x] )  // nested loop one condition
+swap ( arr[i] , arr[x] ) ;
 }
 }
 

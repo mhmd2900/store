@@ -2,13 +2,14 @@
 #include <string>
 #include <array>
 #include <vector>
-#include <limits>   // input_number
-#include <cstdlib>  // random , input_word 
-#include <ctime>    // random
-#include <cmath>    // for sqrt used in prime numbers ,, fabs for sqrr
-#include<iomanip>     // for setw
+#include <limits>     // numeric_limits<streamsize>::max()
+#include <cstdlib>    // rand , srand , system , exit
+#include <ctime>      // time (input_random) , null
+#include<iomanip>     // setw
 using namespace std ;
 
+
+// using std::string;
 // using std::cin;
 // using std::cout;
 // using std::numeric_limits;
@@ -173,13 +174,11 @@ b = temp ;
 
 
 
-void swaps ( int arr[] , int size )
+void array_swab( int arr[] , int size )
 {
-for ( int i = 0 ; i < size ; i ++)
-swap (    arr [ mlib::input_random ( 0 , size -1 ) ]    ,   arr [ mlib::input_random( 0 , size -1 ) ]    ) ;
+for (int i = 0; i < size - 1 ; i++ )        
+    swap(arr[i], arr[mlib::input_random( i , size - 1 )]); 
 }
-
-
 
 
 

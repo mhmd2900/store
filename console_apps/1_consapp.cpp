@@ -3,6 +3,7 @@
 using namespace std ;
 
 
+// sort array within itself
 int main ()
 {
 
@@ -18,7 +19,7 @@ for ( int x = 0 ; x < 5 ; x ++ )
 if ( arr[i] > arr[x] ) // bigger take bigger index
 rep ++ ;
 
-if ( arr[i] == arr[x] && i > x )
+if ( arr[i] == arr[x] && i > x ) // i != x   is wrong , // nestd loop one side
 rep ++ ; // duplicate number move to next index
 }
 arr2[rep] = arr[i] ;
