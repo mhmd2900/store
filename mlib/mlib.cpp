@@ -32,96 +32,96 @@ int input_random ( int from , int to )
 
 
 
-                                                                    //////////////    input number
-                                                                      int input_number ( const string& message )
-                                                                      {
-                                                                          while ( true )
-                                                                          {
-                                                                          cout << message ;
-                                                                          int num ;
+//////////////    input number
+int input_number ( const string& message )
+{
+while ( true )
+{
+cout << message ;
+int num ;
 
-                                                                          if ( cin >> num ) {  cin.ignore( numeric_limits<streamsize>::max() , '\n');   return num ; } // target
-                                                                          else if ( cin.eof() )  { cout << " EOF ... goodbye \n ";  exit(0); } // EOF                    ,, exit needs <cstdlib>
-                                                                          cin.clear();  cin.ignore( numeric_limits<streamsize>::max() , '\n'); // remnant like type mismatch ( fail  )  ,, needs <limits>
-                                                                          } 
-                                                                      }
-
-
-
-                                                                    //////////////    input number  ,,, function overloading
-                                                                    int input_number ( const string& message , int from , int to )
-                                                                    {
-                                                                        while ( true )
-                                                                        {
-                                                                        cout << message ;
-                                                                        int num ;
-                                                                
-                                                                        if ( cin >> num )        {  cin.ignore( numeric_limits<streamsize>::max() , '\n');   
-                                                                                                    if ( num >= from && num <= to )         return num ;     // target 
-                                                                                                    cout << " out of range \n" ; }                     // different choice
-                                                                        else if ( cin.eof() )         { cout << " EOF ... goodbye \n ";  exit(0); }               // EOF
-                                                                        else if ( cin.fail())         { cin.clear();   cin.ignore( numeric_limits<streamsize>::max() , '\n');  cout << " failed input \n "; } // fail 
-                                                                        } 
-                                                                    }
-
-                                                                    ///////////////  want to repeat
-                                                                    bool want_to_repeat ()
-                                                                    {
-                                                                        while ( true )
-                                                                        {
-                                                                        cout << " Do you want to repeat ?   [y/n] \n";
-                                                                        char ch ;
-                                                                
-                                                                        if ( cin >> ch )  {     cin.ignore( numeric_limits<streamsize>::max() , '\n');  
-                                                                                                if (ch == 'y' || ch == 'Y') return true;   // target
-                                                                                                if (ch == 'n' || ch == 'N') return false;  // target
-                                                                                                cout << "Invalid choice, please enter y or n\n";  }  // different choice
-                                                                        else if ( cin.eof())          {  cout << " EOF , goodbye \n" ;  exit(0) ; }  // EOF
-                                                                        else if ( cin.fail())         {  cin.clear();   cin.ignore( numeric_limits<streamsize>::max() , '\n'); cout << " failed input \n"; } // fail ( not char input )
-                                                                        }
-                                                                    } 
+if ( cin >> num ) {  cin.ignore( numeric_limits<streamsize>::max() , '\n');   return num ; } // target
+else if ( cin.eof() )  { cout << " EOF ... goodbye \n ";  exit(0); } // EOF                    ,, exit needs <cstdlib>
+cin.clear();  cin.ignore( numeric_limits<streamsize>::max() , '\n'); // remnant like type mismatch ( fail  )  ,, needs <limits>
+} 
+}
 
 
 
+//////////////    input number  ,,, function overloading
+int input_number ( const string& message , int from , int to )
+{
+while ( true )
+{
+cout << message ;
+int num ;
+
+if ( cin >> num )        {  cin.ignore( numeric_limits<streamsize>::max() , '\n');   
+                        if ( num >= from && num <= to )         return num ;     // target 
+                        cout << " out of range \n" ; }                     // different choice
+else if ( cin.eof() )         { cout << " EOF ... goodbye \n ";  exit(0); }               // EOF
+else if ( cin.fail())         { cin.clear();   cin.ignore( numeric_limits<streamsize>::max() , '\n');  cout << " failed input \n "; } // fail 
+} 
+}
+
+///////////////  want to repeat
+bool want_to_repeat ()
+{
+while ( true )
+{
+cout << " Do you want to repeat ?   [y/n] \n";
+char ch ;
+
+if ( cin >> ch )  {     cin.ignore( numeric_limits<streamsize>::max() , '\n');  
+                    if (ch == 'y' || ch == 'Y') return true;   // target
+                    if (ch == 'n' || ch == 'N') return false;  // target
+                    cout << "Invalid choice, please enter y or n\n";  }  // different choice
+else if ( cin.eof())          {  cout << " EOF , goodbye \n" ;  exit(0) ; }  // EOF
+else if ( cin.fail())         {  cin.clear();   cin.ignore( numeric_limits<streamsize>::max() , '\n'); cout << " failed input \n"; } // fail ( not char input )
+}
+} 
 
 
-                                                                      
-                                                                  
-                                                                      ///////////////////////////    input string
-                                                                        string input_word ( const string& message )
-                                                                        {
-                                                                            while ( true )
-                                                                            {     
-                                                                            cout << message ;
-                                                                            string pass ;   // tight scope
-                                                                  
-                                                                            if (getline(cin, pass))    { if (!pass.empty())   return pass;                 // target
-                                                                                                         else  cout << " input can not be empty ! \n"; }  // different choice
-                                                                            else if (cin.eof())          {cout << " EOF , goodbye \n";   exit(0) ;}            // EOF  
-                                                                            }
-                                                                        }
-                                                                  
-                                                                        
-                                                                        
-                                                                        ///////////////////    input string ( charchters )
-                                                                       string input_wordch ( const string& message )
-                                                                        {  
-                                                                            while (true)
-                                                                            {
-                                                                              cout << message ;
-                                                                              string password ; // fresh empty string each attempt
-                                                                              char ch ; // narrow scope 
-                                                                  
-                                                                              while ( cin.get(ch) )  {
-                                                                                  if ( ch == '\r')   continue ;
-                                                                                  if ( ch == '\n')   break ;
-                                                                                  password += ch ;     }
-                                                                                 
-                                                                              if (cin)  {  if (!password.empty())   return password ;   // target         ,, if (cin) means I/O succeeded (found \n)
-                                                                                                cout <<  " empty password , not acceted , repeat \n" ;  }  // other option
-                                                                              else if ( cin.eof())  { cout << " EOF , goodbye \n" ;  exit(0) ; } // EOF 
-                                                                            }
-                                                                        }
+
+
+
+
+
+///////////////////////////    input string
+string input_word ( const string& message )
+{
+while ( true )
+{     
+cout << message ;
+string pass ;   // tight scope
+
+if (getline(cin, pass))    { if (!pass.empty())   return pass;                 // target
+                              else  cout << " input can not be empty ! \n"; }  // different choice
+else if (cin.eof())          {cout << " EOF , goodbye \n";   exit(0) ;}            // EOF  
+}
+}
+
+
+
+///////////////////    input string ( charchters )
+string input_wordch ( const string& message )
+{  
+while (true)
+{
+  cout << message ;
+  string password ; // fresh empty string each attempt
+  char ch ; // narrow scope 
+
+  while ( cin.get(ch) )  {
+      if ( ch == '\r')   continue ;
+      if ( ch == '\n')   break ;
+      password += ch ;     }
+      
+  if (cin)  {  if (!password.empty())   return password ;   // target         ,, if (cin) means I/O succeeded (found \n)
+                    cout <<  " empty password , not acceted , repeat \n" ;  }  // other option
+  else if ( cin.eof())  { cout << " EOF , goodbye \n" ;  exit(0) ; } // EOF 
+}
+}
 
 
 
@@ -137,77 +137,77 @@ int input_random ( int from , int to )
 
 
 
-                                                                       //////////////////////////   make array one by one    ( random or user )
-                                                                        void fill_array ( int numb , int arr2[] , int& index )
-                                                                        {
-                                                                          arr2[index] = numb  ;
-                                                                          index ++ ;
-                                                                        }// index = 0     in int main 
+//////////////////////////   make array one by one    ( random or user )
+void fill_array ( int numb , int arr2[] , int& index )
+{
+arr2[index] = numb  ;
+index ++ ;
+}// index = 0     in int main 
 
-                                                                        void split_array (int arr1[] ,int arr2[] ,int size ,int& index )
-                                                                        {
-                                                                        for ( int i = 0 ; i < size ; i ++ )
-                                                                        if (mlib::check_prime(arr1[i])) // if needed
-                                                                        fill_array ( arr1[i] , arr2 , index );
-                                                                        }
-
-
-                                                                        ///////////////////////       make array total         ( random or user )
-                                                                        void make_array ( int arr[] , int size)
-                                                                        {
-                                                                        for ( int i = 0 ; i < size ; i ++ )
-                                                                         arr[i] = mlib::input_number(" plz enter number \n" , 1 , 100 );
-                                                                        }
-                                                                        
+void split_array (int arr1[] ,int arr2[] ,int size ,int& index )
+{
+for ( int i = 0 ; i < size ; i ++ )
+if (mlib::check_prime(arr1[i])) // if needed
+fill_array ( arr1[i] , arr2 , index );
+}
 
 
-
-                                                                        /////////////////////      make array from itself ( by swapping - irreversible )
-                                                                        void swap ( int& a , int& b )
-                                                                        {
-                                                                        int temp ;
-                                                                        temp = a ;
-                                                                        a = b ;
-                                                                        b = temp ;
-                                                                        }
-                                                                        
-                                                                        
-                                                                        
-                                                                        void swaps ( int arr[] , int size )
-                                                                        {
-                                                                        for ( int i = 0 ; i < size ; i ++)
-                                                                        swap (    arr [ mlib::input_random ( 0 , size -1 ) ]    ,   arr [ mlib::input_random( 0 , size -1 ) ]    ) ;
-                                                                        }
+///////////////////////       make array total         ( random or user )
+void make_array ( int arr[] , int size)
+{
+for ( int i = 0 ; i < size ; i ++ )
+arr[i] = mlib::input_number(" plz enter number \n" , 1 , 100 );
+}
 
 
 
 
+/////////////////////      make array from itself ( by swapping - irreversible )
+void swap ( int& a , int& b )
+{
+int temp ;
+temp = a ;
+a = b ;
+b = temp ;
+}
 
-                                                                        ////////////////////////    make string from itself  ( with known key - reversible )
-                                                                        string crypt ( string password , int key )
-                                                                        {
-                                                                        for ( int i = 0 ; i < password.length() ; i ++ )
-                                                                        password[i] = static_cast<char> (static_cast<unsigned char>(password[i]) + key) ;
-                                                                        return password ;
-                                                                        }
-                                                                        // Yes, the conversion from int (or unsigned char) to char happens implicitly — 
-                                                                        // but you should still write the explicit static_cast<char> for 3 critical reasons:
-                                                                        // 🧭 Clarity & Intent — telling “I know this is a narrowing conversion, and I want it.”
-                                                                        // ⚠️ Without cast, some compilers will warn you about implicit narrowing.
-                                                                        // 🔍 Makes code more robust against future changes or stricter compiler settings.
-                                                                        
-                                                                        
-                                                                        
-                                                                        
-                                                                        /////////////////////////    make string from other string  ( with known key )
-                                                                        string decrypt ( string password , int key )
-                                                                        {
-                                                                        string pass ;
-                                                                        for ( int i = 0 ; i < password.length() ; i ++ )
-                                                                        // for ( char& i : password )
-                                                                        pass += static_cast<char>(static_cast<unsigned char>(password[i]) - key) ;
-                                                                        return pass ;
-                                                                        }
+
+
+void swaps ( int arr[] , int size )
+{
+for ( int i = 0 ; i < size ; i ++)
+swap (    arr [ mlib::input_random ( 0 , size -1 ) ]    ,   arr [ mlib::input_random( 0 , size -1 ) ]    ) ;
+}
+
+
+
+
+
+////////////////////////    make string from itself  ( with known key - reversible )
+string crypt ( string password , int key )
+{
+for ( int i = 0 ; i < password.length() ; i ++ )
+password[i] = static_cast<char> (static_cast<unsigned char>(password[i]) + key) ;
+return password ;
+}
+// Yes, the conversion from int (or unsigned char) to char happens implicitly — 
+// but you should still write the explicit static_cast<char> for 3 critical reasons:
+// 🧭 Clarity & Intent — telling “I know this is a narrowing conversion, and I want it.”
+// ⚠️ Without cast, some compilers will warn you about implicit narrowing.
+// 🔍 Makes code more robust against future changes or stricter compiler settings.
+
+
+
+
+/////////////////////////    make string from other string  ( with known key )
+string decrypt ( string password , int key )
+{
+string pass ;
+for ( int i = 0 ; i < password.length() ; i ++ )
+// for ( char& i : password )
+pass += static_cast<char>(static_cast<unsigned char>(password[i]) - key) ;
+return pass ;
+}
 
 
 
